@@ -1654,18 +1654,23 @@ angular.$q.Deferred.notify = function(opt_value) {};
 /** @type {angular.$q.Promise} */
 angular.$q.Deferred.promise;
 
-/**
- * @typedef {{then: function(?function(?), ?function(?)=, ?function(?)=):
- *     angular.$q.Promise}}
- */
-angular.$q.Promise;
+/******************************************************************************
+ * Promise
+ *****************************************************************************/
 
 /**
- * @param {?function(?)} successCallback
- * @param {?function(?)=} opt_errorCallback
- * @return {angular.$q.Promise}
+ * @interface
+ * @template T
  */
-angular.$q.Promise.then = function(successCallback, opt_errorCallback) {};
+angular.$q.Promise = function() {};
+
+
+/**
+ * @param {?function(T)} successCallback
+ * @param {?function(?)=} opt_errorCallback
+ * @return {angular.$q.Promise.<T>}
+ */
+angular.$q.Promise.prototype.then = function(successCallback, opt_errorCallback) {};
 
 /******************************************************************************
  * $route Service
