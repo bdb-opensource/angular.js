@@ -1973,3 +1973,61 @@ angular.$timeout_;
  * @type {function(angular.$q.Promise):boolean}
  */
 angular.$timeout_.cancel = function(promise) {};
+
+
+/******************************************************************************
+ * $resource Service
+ *****************************************************************************/
+/**
+ * @interface
+ * @template T
+ */
+angular.Resource = function() {};
+
+/**
+ * @return {angular.Resource.<T>}
+ */
+angular.Resource.prototype.$save = function () { };
+
+/**
+ * @param {?} options
+ * @return {Array.<angular.Resource.<T>>}
+ */
+angular.Resource.prototype.$query = function (options) { };
+
+/**
+ * @param {?} options
+ * @return {angular.Resource.<T>}
+ */
+angular.Resource.prototype.$get = function (options) { };
+
+/**
+ * @type {angular.$q.Promise}
+ */
+angular.Resource.prototype.$promise;
+
+
+
+/******************************************************************************
+ * $logProvider Service
+ *****************************************************************************/
+
+/**
+ * @typedef {{
+ *   debugEnabled:
+ *       function(string): string
+ *   }}
+ */
+angular.$logProvider;
+
+
+/******************************************************************************
+ * $httpProvider Service
+ *****************************************************************************/
+
+/**
+ * @typedef {{
+ *   interceptors: Array.<function() : ?>
+ * }}
+ */
+angular.$httpProvider;
