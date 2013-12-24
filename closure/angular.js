@@ -2007,6 +2007,11 @@ angular.Resource.prototype.$query = function (options) { };
 angular.Resource.prototype.$get = function (options) { };
 
 /**
+ * @return {angular.Resource.<T>}
+ */
+angular.Resource.prototype.$delete = function () { };
+
+/**
  * @type {angular.$q.Promise}
  */
 angular.Resource.prototype.$promise;
