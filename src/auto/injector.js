@@ -634,7 +634,16 @@ function createInjector(modulesToLoad, strictDi) {
           }, strictDi));
 
 
-  forEach(loadModules(modulesToLoad), function(fn) { instanceInjector.invoke(fn || noop); });
+  forEach(loadModules(modulesToLoad), function(fn) {
+    try {
+      instanceInjector.invoke(fn || noop);
+    } catch (e) {
+      if (fn) {
+        e.message += '\nwhen trying to inject: ' + fn.toString().slice(0, 500);
+      }
+      throw e;
+    }
+  });
 
   return instanceInjector;
 
